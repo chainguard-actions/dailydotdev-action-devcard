@@ -1,0 +1,48 @@
+{
+  "name": "action-devcard",
+  "version": "3.0.0",
+  "description": "GitHub Action to download the devcard from daily.dev",
+  "private": true,
+  "author": {
+    "name": "Ole-Martin Bratteng",
+    "email": "ole-martin@bratteng.com"
+  },
+  "contributors": [
+    {
+      "name": "Ole-Martin Bratteng",
+      "email": "ole-martin@bratteng.com"
+    },
+    {
+      "name": "Milan Freml",
+      "email": "kopancek@gmail.com"
+    }
+  ],
+  "scripts": {
+    "lint": "eslint 'src/**/*.ts' --cache",
+    "build": "ncc build --out dist --target es2023 --minify --license license.txt src/index.ts"
+  },
+  "main": "src/index.ts",
+  "repository": "github:dailydotdev/action-devcard",
+  "bugs": "https://github.com/dailydotdev/action-devcard/issues",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "node-fetch": "^3.3.2",
+    "simple-git": "^3.20.0"
+  },
+  "devDependencies": {
+    "@types/jsdom": "21.x",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.20.0",
+    "@vercel/ncc": "0.38.1",
+    "dotenv": "^16.4.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
+  },
+  "packageManager": "yarn@4.1.0"
+}
