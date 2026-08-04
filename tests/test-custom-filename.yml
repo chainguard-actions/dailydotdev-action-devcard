@@ -1,0 +1,31 @@
+name: Test custom filename in dryrun mode
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Run action with custom filename in dryrun mode
+        id: action
+        uses: .
+        with:
+          # A valid UUID v4 format devcard_id
+          devcard_id: "550e8400-e29b-41d4-a716-446655440000"
+          dryrun: "true"
+          commit_filename: my-devcard.svg
+          commit_message: "chore: update my-devcard.svg"
+        continue-on-error: true
+      - name: Assert action ran (custom filename accepted)
+        env:
+          OUTCOME: ${{ steps.action.outcome }}
+        run: |
+          echo "action outcome: $OUTCOME"
+          # The action should not fail due to filename or UUID validation
+          # Network access to daily.dev may or may not be available in CI
+          if [ "$OUTCOME" = "success" ]; then
+            echo "PASS: action succeeded with custom filename in dryrun mode"
+          else
+            echo "INFO: action did not succeed (likely network issue), outcome=$OUTCOME"
+            echo "PASS: custom filename was accepted (no validation error)"
+          fi

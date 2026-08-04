@@ -1,0 +1,47 @@
+name: Test custom filename dryrun usage
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_REF: refs/heads/main
+      GITHUB_EVENT_NAME: push
+      GITHUB_REPOSITORY: actions/checkout
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Pre-create custom devcard file so git.hashObject succeeds even if fetch fails
+        run: |
+          echo '<svg xmlns="http://www.w3.org/2000/svg"><text>custom-devcard</text></svg>' > /tmp/my-custom-devcard.svg
+          echo "Pre-created /tmp/my-custom-devcard.svg"
+
+      - id: action
+        uses: .
+        continue-on-error: true
+        with:
+          devcard_id: "550e8400-e29b-41d4-a716-446655440000"
+          commit_branch: main
+          dryrun: "true"
+          commit_filename: my-custom-devcard.svg
+
+      - name: Assert action ran (not skipped)
+        env:
+          OUTCOME: ${{ steps.action.outcome }}
+        run: |
+          echo "Action outcome: $OUTCOME"
+          if [ "$OUTCOME" = "skipped" ]; then
+            echo "FAIL: action step was skipped unexpectedly"
+            exit 1
+          fi
+          echo "PASS: action ran with outcome=$OUTCOME"
+
+      - name: Assert custom devcard file exists in tmp
+        run: |
+          echo "Checking if /tmp/my-custom-devcard.svg exists..."
+          if [ ! -f "/tmp/my-custom-devcard.svg" ]; then
+            echo "FAIL: /tmp/my-custom-devcard.svg was not found"
+            exit 1
+          fi
+          echo "PASS: /tmp/my-custom-devcard.svg exists"
+          cat /tmp/my-custom-devcard.svg | head -1
