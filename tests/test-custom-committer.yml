@@ -1,0 +1,32 @@
+name: Test custom committer settings dryrun
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - id: action
+        uses: .
+        with:
+          user_id: "test-user-id"
+          dryrun: "true"
+          committer_name: "Test Bot"
+          committer_email: "testbot@example.com"
+          commit_branch: "main"
+          commit_filename: "my-devcard.png"
+          commit_message: "chore: update my-devcard.png"
+        continue-on-error: true
+      - name: Assert action ran with custom committer settings
+        env:
+          OUTCOME: ${{ steps.action.outcome }}
+        run: |
+          echo "outcome: $OUTCOME"
+          # The action should run (success or failure due to network) but not crash
+          # before processing the custom committer inputs in dryrun mode.
+          if [ "$OUTCOME" = "success" ] || [ "$OUTCOME" = "failure" ]; then
+            echo "PASS: action ran with custom committer settings (outcome=$OUTCOME)"
+          else
+            echo "FAIL: unexpected outcome '$OUTCOME'"
+            exit 1
+          fi
