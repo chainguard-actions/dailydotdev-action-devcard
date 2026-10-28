@@ -6,13 +6,13 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 
 ## Versions
 
-| Version | Tag | Upstream commit |
-|---------|-----|-----------------|
-| 2.3.1 | [`2.3.1`](https://github.com/chainguard-actions/dailydotdev-action-devcard/tree/2.3.1) | [`6781c6a`](https://github.com/dailydotdev/action-devcard/commit/6781c6affa432841580cc1e9a552cc1500bfa4dc) |
-| 3.0.0 | [`3.0.0`](https://github.com/chainguard-actions/dailydotdev-action-devcard/tree/3.0.0) | [`2769722`](https://github.com/dailydotdev/action-devcard/commit/276972279623d2d6dd68aef668fdb75adb3a9d19) |
-| 3.1.0 | [`3.1.0`](https://github.com/chainguard-actions/dailydotdev-action-devcard/tree/3.1.0) | [`1215edc`](https://github.com/dailydotdev/action-devcard/commit/1215edc6501c5f71e4a21d6b4faeb5c32fb2750b) |
-| 3.2.0 | [`3.2.0`](https://github.com/chainguard-actions/dailydotdev-action-devcard/tree/3.2.0) | [`e386c68`](https://github.com/dailydotdev/action-devcard/commit/e386c68b0bb26d743e3fbab6f3770ce8261f3e19) |
-| 3.2.1 | [`3.2.1`](https://github.com/chainguard-actions/dailydotdev-action-devcard/tree/3.2.1) | [`958db5a`](https://github.com/dailydotdev/action-devcard/commit/958db5a3e058fa60678968743b17214f7fc03a4b) |
+| Version | Tag | Upstream commit | Hardening report |
+|---------|-----|-----------------|------------------|
+| 2.3.1 | [`2.3.1`](https://github.com/chainguard-actions/dailydotdev-action-devcard/tree/2.3.1) | [`6781c6a`](https://github.com/dailydotdev/action-devcard/commit/6781c6affa432841580cc1e9a552cc1500bfa4dc) | [`HARDENING.md`](https://github.com/chainguard-actions/dailydotdev-action-devcard/blob/2.3.1/HARDENING.md) |
+| 3.0.0 | [`3.0.0`](https://github.com/chainguard-actions/dailydotdev-action-devcard/tree/3.0.0) | [`2769722`](https://github.com/dailydotdev/action-devcard/commit/276972279623d2d6dd68aef668fdb75adb3a9d19) | [`HARDENING.md`](https://github.com/chainguard-actions/dailydotdev-action-devcard/blob/3.0.0/HARDENING.md) |
+| 3.1.0 | [`3.1.0`](https://github.com/chainguard-actions/dailydotdev-action-devcard/tree/3.1.0) | [`1215edc`](https://github.com/dailydotdev/action-devcard/commit/1215edc6501c5f71e4a21d6b4faeb5c32fb2750b) | [`HARDENING.md`](https://github.com/chainguard-actions/dailydotdev-action-devcard/blob/3.1.0/HARDENING.md) |
+| 3.2.0 | [`3.2.0`](https://github.com/chainguard-actions/dailydotdev-action-devcard/tree/3.2.0) | [`e386c68`](https://github.com/dailydotdev/action-devcard/commit/e386c68b0bb26d743e3fbab6f3770ce8261f3e19) | [`HARDENING.md`](https://github.com/chainguard-actions/dailydotdev-action-devcard/blob/3.2.0/HARDENING.md) |
+| 3.2.1 | [`3.2.1`](https://github.com/chainguard-actions/dailydotdev-action-devcard/tree/3.2.1) | [`958db5a`](https://github.com/dailydotdev/action-devcard/commit/958db5a3e058fa60678968743b17214f7fc03a4b) | [`HARDENING.md`](https://github.com/chainguard-actions/dailydotdev-action-devcard/blob/3.2.1/HARDENING.md) |
 
 ## Privacy
 
